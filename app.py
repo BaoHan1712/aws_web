@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 import uuid
 import json
+import os
 
 app = Flask(__name__)
 
@@ -69,5 +70,6 @@ def checkout():
         "total": total_amount
     })
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
